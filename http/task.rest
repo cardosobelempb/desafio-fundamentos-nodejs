@@ -1,0 +1,41 @@
+@hostname = http://localhost
+@port = 3333
+@host = {{hostname}}:{{port}}
+
+### Criar task
+POST {{host}}/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Nova Task 02", 
+    "description": "Nova Descrição da Task 02"
+}
+
+### upload de tasks
+POST {{host}}/tasks/upload HTTP/1.1
+Content-Type: application/json
+
+
+### Deletar task
+DELETE {{host}}/tasks/50b416e0-1bf9-4154-bdb3-2b5cadf5d669
+
+### Buscar task por ID
+GET {{host}}/tasks/8809454b-3b8c-446c-8ed2-b98affb61f53 HTTP/1.1
+
+### Listar todos os tasks
+GET {{host}}/tasks HTTP/1.1
+# GET {{host}}/tasks?search=05 HTTP/1.1
+
+### Atualizar task
+PUT {{host}}/tasks/8809454b-3b8c-446c-8ed2-b98affb61f53 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Task 01 - alterada", 
+    "description": "Descrição da Task 01 - alterada"
+}
+
+### Atualizar task
+PATCH {{host}}/tasks/8809454b-3b8c-446c-8ed2-b98affb61f53/complete HTTP/1.1
+Content-Type: application/json
+
